@@ -1,0 +1,33 @@
+{
+  "name": "gennin_level",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "sh run_dev.sh",
+    "dev": "nodemon -e js,json,graphql index.js",
+    "lint": "standard --fix"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "nodemon": "^1.18.10",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "express": "^4.16.4",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.4",
+    "graphql-yoga": "^1.17.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}

@@ -1,0 +1,72 @@
+type Query{
+    User(id:ID!):User
+    Users:[User]
+    SearchUser(email:String!):User
+    # Posts:[Post]
+}
+
+type Mutation{
+    login(email:String, password:String): String
+    signUp(data: UserInput!):String
+    
+    CreateUser(data: UserInput!): User
+    UpdateUser(id:ID!, data: UserUpdateInput!): User
+    
+    # AddPost(id: ID!, post: ID!): User
+    # CreatePost(data: PostInput!): Post
+    # UpdatePost(id:ID!, data:PostUpdateInput!):Post
+}
+
+type User{
+    _id:ID
+    name:String
+    email:String
+    username: String
+    password:String
+    # level:Int
+    # course:[Course]
+    # posts:[Post]
+}
+
+# type Course{
+#     name:String
+#     hour:String
+# }
+
+# type Post{
+#     _id:ID
+#     title:String!
+#     content:String!
+# }
+
+input UserInput{
+    name:String
+    email:String!
+    password:String!
+    username:String!
+}
+
+input UserUpdateInput{
+    name:String
+    email:String
+    password:String
+    username: String
+    # level:Int
+    # course:[CourseInput]
+    # posts:[ID]
+}
+
+# input CourseInput{
+#     name:String
+#     hour:String
+# }
+
+# input PostInput{
+#     title:String!
+#     content:String!
+# }
+
+# input PostUpdateInput{
+#     title:String
+#     content:String
+# }
