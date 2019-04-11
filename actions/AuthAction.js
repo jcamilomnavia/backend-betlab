@@ -21,12 +21,18 @@ const login = (email, password) => {
     searchUserByEmail(email).then((user) => {
       bcrypt.compare(password, user.password, (err, isValid) => {
         if (err) reject(err)
-        isValid ? resolve(createToken(user)) : reject(new Error('Password does not match'))
+        isValid ? resolve({
+          token: createToken(user),
+          user
+        }) : reject(new Error('Password does not match'))
       })
     }
     ).catch(reject)
   })
-    .then(token => token)
+    .then(loginUser => {
+      // console.log(loginUser)
+      return loginUser
+    })
     .catch((err) => { console.log(`user not exist err ${err}`) })
 }
 

@@ -2,12 +2,13 @@ type Query{
     User(id:ID!):User
     Users:[User]
     SearchUser(email:String!):User
+    SearchUserById:LoginUser
     # Posts:[Post]
 }
 
 type Mutation{
-    login(email:String, password:String): String
-    signUp(data: UserInput!):String
+    login(email:String, password:String): LoginUser
+    signUp(data: UserInput!):LoginUser
     
     CreateUser(data: UserInput!): User
     UpdateUser(id:ID!, data: UserUpdateInput!): User
@@ -15,6 +16,11 @@ type Mutation{
     # AddPost(id: ID!, post: ID!): User
     # CreatePost(data: PostInput!): Post
     # UpdatePost(id:ID!, data:PostUpdateInput!):Post
+}
+
+type LoginUser{
+    token: String!
+    user: User
 }
 
 type User{

@@ -1,7 +1,10 @@
 const { userAction, postAction, authAction } = require('../actions')
 const validateAuthorization = require('./authorization')
 
-const login = (_, args) => authAction.login(args.email, args.password)
+const login = (_, args) => {
+  let auth = authAction.login(args.email, args.password)
+  return auth
+}
 const signUp = (_, args) => authAction.signup(args.data)
 
 const CreateUser = (_, args) => userAction.createUser(args.data)

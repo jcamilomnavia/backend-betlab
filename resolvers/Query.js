@@ -1,18 +1,14 @@
-const { userAction, postAction } = require('../actions')
+const { userAction } = require('../actions')
+const validateAuthorization = require('./authorization')
 
 const SearchUser = (_, args) => userAction.searchUserByEmail(args.email)
+const SearchUserById = (_, args, context) => validateAuthorization(context, (user) => user)
 const User = (_, args) => userAction.user(args.id)
 const Users = (_) => userAction.users()
-
-// const hello = (_, { name }) => `Hello ${name || 'World'}`
-// const Sum = (_, { value1, value2 }) => (value1 + value2)
-// const Posts = (_) => postAction.posts()
 
 module.exports = {
   User,
   Users,
-  SearchUser
-  // hello,
-  // Sum,
-  // Posts
+  SearchUser,
+  SearchUserById
 }
