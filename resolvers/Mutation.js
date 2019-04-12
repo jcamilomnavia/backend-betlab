@@ -5,7 +5,10 @@ const login = (_, args) => {
   let auth = authAction.login(args.email, args.password)
   return auth
 }
-const signUp = (_, args) => authAction.signup(args.data)
+const signUp = (_, args) => {
+  let auth = authAction.signup(args.data)
+  return auth
+}
 
 const CreateUser = (_, args) => userAction.createUser(args.data)
 const UpdateUser = (_, args) => userAction.updateUser(args.id, args.data)

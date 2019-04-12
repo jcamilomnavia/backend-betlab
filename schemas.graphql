@@ -8,7 +8,7 @@ type Query{
 
 type Mutation{
     login(email:String, password:String): LoginUser
-    signUp(data: UserInput!):LoginUser
+    signUp(data: UserInput!):String
     
     CreateUser(data: UserInput!): User
     UpdateUser(id:ID!, data: UserUpdateInput!): User
@@ -33,17 +33,6 @@ type User{
     # course:[Course]
     # posts:[Post]
 }
-
-# type Course{
-#     name:String
-#     hour:String
-# }
-
-# type Post{
-#     _id:ID
-#     title:String!
-#     content:String!
-# }
 
 input UserInput{
     name:String

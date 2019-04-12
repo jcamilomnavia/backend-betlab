@@ -30,7 +30,6 @@ const login = (email, password) => {
     ).catch(reject)
   })
     .then(loginUser => {
-      // console.log(loginUser)
       return loginUser
     })
     .catch((err) => { console.log(`user not exist err ${err}`) })
