@@ -16,8 +16,8 @@ const searchUserByEmail = (email) => {
     })
 }
 
-const createUser = (data) => {
-  const { name, email, username, password } = data
+const createUser = (email, password, username, name) => {
+  // const { name, email, username, password } = data
   return UserSchema.create({ name, email, username, password })
     .then((user) => user)
     .catch((err) => {

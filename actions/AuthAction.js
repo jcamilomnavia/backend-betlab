@@ -5,12 +5,15 @@ const { createUser, searchUserByEmail, searchUserById } = require('./UserActions
 
 const SECRET_KEY = process.env.SECRET_KEY
 
-const signup = (data) => {
+const signup = (email, password,username, name) => {
   return new Promise((resolve, reject) => {
-    createUser(data).then(
+    createUser(email, password, username, name).then(
       (user) => {
         const token = createToken(user)
-        resolve(token)
+        resolve({
+          token,
+          user
+        })
       }
     ).catch(reject)
   })

@@ -3,19 +3,14 @@ type Query{
     Users:[User]
     SearchUser(email:String!):User
     SearchUserById:LoginUser
-    # Posts:[Post]
 }
 
 type Mutation{
     login(email:String, password:String): LoginUser
-    signUp(data: UserInput!):String
+    signUp(email:String, password:String,username:String, name:String):LoginUser
     
     CreateUser(data: UserInput!): User
     UpdateUser(id:ID!, data: UserUpdateInput!): User
-    
-    # AddPost(id: ID!, post: ID!): User
-    # CreatePost(data: PostInput!): Post
-    # UpdatePost(id:ID!, data:PostUpdateInput!):Post
 }
 
 type LoginUser{
@@ -29,9 +24,6 @@ type User{
     email:String
     username: String
     password:String
-    # level:Int
-    # course:[Course]
-    # posts:[Post]
 }
 
 input UserInput{
@@ -46,22 +38,4 @@ input UserUpdateInput{
     email:String
     password:String
     username: String
-    # level:Int
-    # course:[CourseInput]
-    # posts:[ID]
 }
-
-# input CourseInput{
-#     name:String
-#     hour:String
-# }
-
-# input PostInput{
-#     title:String!
-#     content:String!
-# }
-
-# input PostUpdateInput{
-#     title:String
-#     content:String
-# }

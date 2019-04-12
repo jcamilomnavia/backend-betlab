@@ -6,7 +6,8 @@ const login = (_, args) => {
   return auth
 }
 const signUp = (_, args) => {
-  let auth = authAction.signup(args.data)
+  let auth = authAction.signup(args.email, args.password,args.username, args.name)
+  console.log(auth)
   return auth
 }
 
